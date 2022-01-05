@@ -42,7 +42,7 @@ This I did by running 'nodemon server.js' in the /dist directory which contains 
 * Background photos are shown to add more interest to the pages. They have no relationship to the weather in the location. It would be interesting to link locations with, for example, snow with a photo of snow!  Also, the same photos are shown for each html page; a greater selection would be nice
 
 ### Credits
-Thanks to:
-https://getbootstrap.com/
-https://unsplash.com/
+Thanks to:  
+https://getbootstrap.com/  
+https://unsplash.com/  
 Plus the other providers of libraries installed from npm.
