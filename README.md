@@ -34,7 +34,7 @@ You do, of course, have to create your own .env file to contain the secret key r
 In the console, run 'npm init' in the root directory.
 
 ### Starting the server and running tests
-This I did by running 'nodemon server.js' in the /dist directory which contains all the js files. I also ran jest from here.
+This I did by running 'nodemon server.js' in the /dist directory which contains all the js files.  
 
 ### To do list and problems encountered  
 * Although a css file was created, for some reason, the html simply wouldn't pick it up. In the end, the styles were inserted inline.  
