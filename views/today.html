@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+<title>{% block title %}Today{% endblock %}</title>
 
 {% block content %}
 
@@ -8,14 +9,13 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <div class="card">
-                <img class="card-img-top" src="https://media.istockphoto.com/photos/sunny-bright-blue-sky-with-clouds-picture-id471298483?b=1&k=20&m=471298483&s=170667a&w=0&h=YiNMUNjB9WUGCiI1yn6K6HuUBcXLm16V_7V5BCsqkNI=">
+                <img class="card-img-top" src="https://media.istockphoto.com/photos/heat-wave-concrept-picture-id1243760572?b=1&k=20&m=1243760572&s=170667a&w=0&h=pOyTDNjkgMUyr9bw6ig1X-7yEdWHIzSGwY83_W2hXEw=">
                 <div class="card-body">
                 <h5 class="card-title">Today's weather for {{weather.name}}</h5>
                   <p class="card-text">Minimum temperature: {{weather.main.temp_min}}&degC</p>
                   <p class="card-text">Maximum temperature: {{weather.main.temp_max}}&degC</p>
                   <p class="card-text">Current temperature: {{weather.main.temp}}&degC</p>
                   <a href="/" class="btn btn-sm btn-primary">Home</a>
-                  <!-- <a href="/forecast/{{weather.name}}" class="btn btn-sm btn-primary">Five-day forecast</a>                   -->
                   <a href="/forecast/{{weather.name}}" class="btn btn-sm btn-primary">Five-day forecast</a>                  
                 </div>
               </div>
@@ -23,10 +23,6 @@
     </div>
     
 </div>
-
-
-
-
 </body>
 
 {% endblock %}

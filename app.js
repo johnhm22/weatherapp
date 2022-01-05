@@ -1,7 +1,7 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const axios = require("axios");
-const {createArrayOfTemps, calculateTempMax, calculateTempMin, averageTemp} = require('./helperFunctions');
+const {createArrayOfTemps, calculateTempMax, calculateTempMin, averageTemp, calculateMode} = require('./helperFunctions');
 
 
 const {   
@@ -26,12 +26,11 @@ app.get('/', (req, res) => {
 
 
 app.get('/today', async (req, res) => {
-    console.log("req.query.city", req.query.city);
+    
     try{
     const {city} = req.query;
     const result = await axios.get(`${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`);
-    const weather = result.data;
-    // console.log("weather", weather);
+    const weather = result.data;    
     res.render("today.html", {weather: weather});
     }
     catch(e){
@@ -42,21 +41,19 @@ app.get('/today', async (req, res) => {
 
 
 app.get('/forecast', async (req, res) => {
-    console.log("req.query.city", req.query.city);
     try{
     const {city} = req.query;
     const result = await axios.get(`${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`);
     const forecast = result.data;
-    console.log("forecast", forecast);
 
-    let tempArray = createArrayOfTemps(forecast.list);
+    let tempArray = createArrayOfTemps(forecast.list);    
     let tempMax = calculateTempMax(tempArray);
     let tempMin = calculateTempMin(tempArray);
     let tempAverage = averageTemp(tempArray);
     let averageTempRounded = tempAverage.toFixed(2);
+    let mode = calculateMode(tempArray);
     
-
-    res.render("forecast.html", {forecast: forecast, tempMax: tempMax, tempMin: tempMin, averageTempRounded: averageTempRounded});
+    res.render("forecast.html", {forecast: forecast, tempMax: tempMax, tempMin: tempMin, averageTempRounded: averageTempRounded, mode: mode});
     }
     catch(e){
         console.log("Error in providing today's weather");
@@ -64,9 +61,7 @@ app.get('/forecast', async (req, res) => {
     }
 });
 
-app.get('/forecast/:city', async (req, res) => {
-    console.log("req.params", req.params);
-    console.log("req.params.city in forecast/city", req.params.city);
+app.get('/forecast/:city', async (req, res) => {    
     try{
     const {city} = req.params;
     const result = await axios.get(`${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`);

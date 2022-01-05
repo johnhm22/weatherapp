@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+<title>{% block title %}Forecast{% endblock %}</title>
+
 {% block content %}
 
 <body 
@@ -9,10 +11,10 @@ background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https:
 background-size: cover;
 background-position: center;"
 >
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-6">
-          <h3 class="mt-3 mb-3 text-center">5 day forecast for {{forecast.city.name}}</h3>
+        <div class="col-8" style="height: 700px; overflow-y: scroll;">
+          <h3 class="mt-3 mb-3 text-center" id="heading">5 day forecast for {{forecast.city.name}}</h3>
 
           <table class="table table-striped mt-3 mb-3">
             <thead>
@@ -20,6 +22,7 @@ background-position: center;"
                 <th scope="col">Max temp &degC</th>
                 <th scope="col">Min temp &degC</th>
                 <th scope="col">Average temp &degC</th>
+                <th scope="col">Mode temp(s) &degC</th>
               </tr>
             </thead>
             <tbody>
@@ -27,19 +30,20 @@ background-position: center;"
                 <td>{{tempMax}}</td>
                 <td>{{tempMin}}</td>
                 <td>{{averageTempRounded}}</td>
+                <td>{{mode}}</td>
               </tr>
             </tbody>
           </table>
 
           <button class="btn btn-sm btn-info mb-3 float-right"><a href='/' style="color: white;">Home</a></button>
 
+          <div class="table-wrapper-scroll-y my-custom-scrollbar">
             <table class="table table-striped">
-                <thead>
+                <thead style="position: sticky; top: 0">
                   <tr>
                     <th scope="col">Date and time</th>                    
-                    <th scope="col">Temp</th>
-                    <th scope="col">Min temp</th>
-                    <th scope="col">Max temp</th>
+                    <th scope="col">Predicted temp</th>
+                    <th scope="col">Weather</th>               
                   </tr>
                 </thead>
                 <tbody>
@@ -47,13 +51,13 @@ background-position: center;"
                   <tr>
                     <td>{{item.dt_txt}}</td>                    
                     <td>{{item.main.temp}}</td>
-                    <td>{{item.main.temp_min}}</td>
-                    <td>{{item.main.temp_min}}</td>
+                    <td>{{item.weather[0].description}}</td>                                        
                   </tr>     
                   {% endfor %}                                   
                 </tbody>
-              </table>          
-</div>
+              </table>       
+            </div>   
+        </div>
 </div>
 </div>
 
