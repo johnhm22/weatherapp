@@ -12,14 +12,21 @@ It was an exercise to test coding skills including the ability to connect to an 
 
 ## Tech stack/framework  
 The technology used is:
-HTML
-Node.js
+* JavaScript
+* Express
+* Nunjucks as a templating engine for JavaScript
+* HTML
+* Bootstrap 4
 
-API reference
+## API reference  
+The api used can be found at https://openweathermap.org/api , specifically the apis for the current weather and five-day forecast were used  
 
-Tests
+## Tests  
+Tests have not yet been added
 
-How to use
+## How to use
+
+
 
 To do list
 
