@@ -24,8 +24,20 @@ The api used can be found at https://openweathermap.org/api , specifically the a
 ## Tests  
 Tests have not yet been added
 
-## How to use
+### How to use  
+Create a folder on your own computer, ensuring it's not already a git repository. There is a green button at the top right of this repository called 'Code' which you gives you the option to clone, download a zip file, or open with GitHub desktop. Choosing 'clone', fetches everything and puts it in your folder.  
+If you want to clone, copy the link and then run this command:  
+'git clone  '.  
+You do, of course, have to create your own .env file to contain the secret key required by express session and the API key, which you get from the API provider.
 
+### Setting up the database
+You'll need to install the database PostgreSQL and then set up the tables. There is a script included here called schema.sql. It creates the database called mymovies; first dropping it if it already exists, creating it from new and then creating tables. In the console, navigate to the same directory as the file schema.sql and then run the command: 'psql < schema.sql'.
+
+### Installing dependencies
+In the console, run 'npm init' in the root directory.
+
+### Starting the server and running tests
+This I did by running 'nodemon server.js' in the /dist directory which contains all the js files. I also ran jest from here.
 
 
 To do list
