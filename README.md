@@ -38,10 +38,8 @@ This I did by running 'nodemon server.js' in the root directory which contains t
 
 ### To do list and problems encountered  
 * Although a css file was created, for some reason, the html simply wouldn't pick it up. In the end, the styles were inserted inline.  
-* More details about the weather needs to be added; currently it is really a temperature rather than weather app.  
 * Background photos are shown to add more interest to the pages. They have no relationship to the weather in the location. It would be interesting to link locations with, for example, snow with a photo of snow!  Also, the same photos are shown for each html page; a greater selection would be nice  
 * Date/time format on the forecast page is not elegant and needs formatting into something more attractive  
-* On the same page, as you scroll through the forecast the background photo repeats. Scrolling the table only would be prefereable.
 
 ### Credits
 Thanks to:  
