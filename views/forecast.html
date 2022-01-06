@@ -44,6 +44,8 @@ background-position: center;"
                     <th scope="col">Date and time</th>                    
                     <th scope="col">Predicted temp</th>
                     <th scope="col">Weather</th>               
+                    <th scope="col"></th>               
+                  </tr>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,6 +54,7 @@ background-position: center;"
                     <td>{{item.dt_txt}}</td>                    
                     <td>{{item.main.temp}}</td>
                     <td>{{item.weather[0].description}}</td>                                        
+                    <td><img src="http://openweathermap.org/img/wn/{{item.weather[0].icon}}@2x.png" height="30" width="30" alt="weather icon"></td>                                        
                   </tr>     
                   {% endfor %}                                   
                 </tbody>

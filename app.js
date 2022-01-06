@@ -21,7 +21,7 @@ nunjucks.configure('views', {
 });
 
 app.get('/', (req, res) => {
-    res.render('home.html');
+    res.status(200).render('home.html');
 });
 
 
@@ -39,6 +39,9 @@ app.get('/today', async (req, res) => {
     }
 });
 
+
+//icon link
+// http://openweathermap.org/img/wn/{{10d}}@2x.png
 
 app.get('/forecast', async (req, res) => {
     try{
@@ -70,7 +73,7 @@ app.get('/forecast/:city', async (req, res) => {
     let tempMax = calculateTempMax(tempArray);
     let tempMin = calculateTempMin(tempArray);
     let tempAverage = averageTemp(tempArray);
-    let averageTempRounded = tempAverage.toFixed(2);
+    let averageTempRounded = +tempAverage.toFixed(2);
     
     res.render("forecast.html", {forecast: forecast, tempMax: tempMax, tempMin: tempMin, averageTempRounded: averageTempRounded});
     }
