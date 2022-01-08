@@ -12,7 +12,7 @@ It was an exercise to test coding skills including the ability to connect to an 
 
 ### Tech stack/framework  
 The technology used is:
-* JavaScript
+* Node.js
 * Express
 * Nunjucks as a templating engine for JavaScript
 * HTML
