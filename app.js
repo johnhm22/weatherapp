@@ -34,14 +34,11 @@ app.get('/today', async (req, res) => {
     res.render("today.html", {weather: weather});
     }
     catch(e){
-        console.log("Error in providing today's weather");
+        console.log("Error in providing today's weather", e);
         res.render("home.html");
     }
 });
 
-
-//icon link
-// http://openweathermap.org/img/wn/{{10d}}@2x.png
 
 app.get('/forecast', async (req, res) => {
     try{
